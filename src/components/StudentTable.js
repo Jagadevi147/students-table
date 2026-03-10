@@ -1,6 +1,6 @@
 import React from "react";
 
-function StudentTable({ students, deleteStudent }) {
+function StudentTable({ students, deleteStudent, editStudent }) {
   return (
     <div>
       <h2>Students List</h2>
@@ -23,6 +23,8 @@ function StudentTable({ students, deleteStudent }) {
               <td>{student.age}</td>
 
               <td>
+                <button onClick={() => editStudent(index)}>Edit</button>
+
                 <button onClick={() => deleteStudent(index)}>Delete</button>
               </td>
             </tr>

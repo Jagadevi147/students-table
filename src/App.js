@@ -20,13 +20,33 @@ function App() {
     }
   };
 
+  const editStudent = (index) => {
+    const student = students[index];
+
+    const name = prompt("Edit Name", student.name);
+    const email = prompt("Edit Email", student.email);
+    const age = prompt("Edit Age", student.age);
+
+    if (name && email && age) {
+      const updatedStudents = [...students];
+
+      updatedStudents[index] = { name, email, age };
+
+      setStudents(updatedStudents);
+    }
+  };
+
   return (
     <div style={{ textAlign: "center" }}>
       <h1>Students Management System</h1>
 
       <StudentForm addStudent={addStudent} />
 
-      <StudentTable students={students} deleteStudent={deleteStudent} />
+      <StudentTable
+        students={students}
+        deleteStudent={deleteStudent}
+        editStudent={editStudent}
+      />
     </div>
   );
 }
