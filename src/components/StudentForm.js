@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function StudentForm() {
+function StudentForm({ addStudent }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
@@ -26,7 +26,7 @@ function StudentForm() {
       age,
     };
 
-    console.log(newStudent);
+    addStudent(newStudent);
 
     setName("");
     setEmail("");
