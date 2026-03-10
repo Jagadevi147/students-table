@@ -9,13 +9,24 @@ function App() {
     setStudents([...students, student]);
   };
 
+  const deleteStudent = (index) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this student?",
+    );
+
+    if (confirmDelete) {
+      const updatedStudents = students.filter((student, i) => i !== index);
+      setStudents(updatedStudents);
+    }
+  };
+
   return (
     <div style={{ textAlign: "center" }}>
       <h1>Students Management System</h1>
 
       <StudentForm addStudent={addStudent} />
 
-      <StudentTable students={students} />
+      <StudentTable students={students} deleteStudent={deleteStudent} />
     </div>
   );
 }
