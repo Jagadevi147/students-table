@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import StudentForm from "./components/StudentForm";
 import StudentTable from "./components/StudentTable";
+import { exportToExcel } from "./utils/exportExcel";
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -41,6 +42,7 @@ function App() {
       <h1>Students Management System</h1>
 
       <StudentForm addStudent={addStudent} />
+      <button onClick={() => exportToExcel(students)}>Download Excel</button>
 
       <StudentTable
         students={students}
