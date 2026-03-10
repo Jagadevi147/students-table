@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import StudentForm from "./components/StudentForm";
 import StudentTable from "./components/StudentTable";
 import { exportToExcel } from "./utils/exportExcel";
 
 function App() {
   const [students, setStudents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
 
   const addStudent = (student) => {
     setStudents([...students, student]);
@@ -36,6 +42,9 @@ function App() {
       setStudents(updatedStudents);
     }
   };
+  if (loading) {
+    return <h2 style={{ textAlign: "center" }}>Loading students...</h2>;
+  }
 
   return (
     <div style={{ textAlign: "center" }}>
