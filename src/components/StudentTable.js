@@ -23,9 +23,16 @@ function StudentTable({ students, deleteStudent, editStudent }) {
               <td>{student.age}</td>
 
               <td>
-                <button onClick={() => editStudent(index)}>Edit</button>
+                <button className="edit-btn" onClick={() => editStudent(index)}>
+                  Edit
+                </button>
 
-                <button onClick={() => deleteStudent(index)}>Delete</button>
+                <button
+                  className="delete-btn"
+                  onClick={() => deleteStudent(index)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

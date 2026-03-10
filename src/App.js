@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import StudentForm from "./components/StudentForm";
 import StudentTable from "./components/StudentTable";
 import { exportToExcel } from "./utils/exportExcel";
+import "./App.css";
 
 function App() {
   const [students, setStudents] = useState([]);
